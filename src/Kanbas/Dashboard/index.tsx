@@ -11,7 +11,7 @@ function Dashboard() {
           {courses.map((course: { _id: React.Key | null | undefined; image: any; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined; }) => (
             <div key={course._id} className="col" style={{ width: 300 }}>
               <div className="card">
-                <img src={`/images/${course.image}`} className="card-img-top"
+                <img src={`./images/${course.image}`} className="card-img-top"
                      style={{ height: 150 }}/>
                 <div className="card-body">
                   <Link className="card-title" to={`/Kanbas/Courses/${course._id}/Home`}

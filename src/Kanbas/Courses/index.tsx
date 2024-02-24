@@ -11,11 +11,11 @@ function Courses() {
   const course = courses.find(
     (course) => course._id === courseId);
   return (
-    <div>
-      <h1><HiMiniBars3 /> Course {course?.name} -  {}</h1>
-      <CourseNavigation />
-      <div>
-        <div>
+    <div className="container">
+      <div className="row"><h1><HiMiniBars3 /> Course {course?.name} </h1></div>
+      <div className="row">
+      <div className="col-lg-3"><CourseNavigation /></div>
+      <div className="col-lg-9">
           <Routes>
             <Route path="/" element={<Navigate to="Home" />} />
             <Route path="Home" element={<Home />} />
