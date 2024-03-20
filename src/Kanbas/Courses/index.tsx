@@ -1,4 +1,4 @@
-import { courses } from "../../Kanbas/Database";
+//import { courses } from "../../Kanbas/Database";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import { HiMiniBars3 } from "react-icons/hi2";
 import CourseNavigation from "./Navigation";
@@ -6,10 +6,9 @@ import Modules from "./Modules";
 import Home from "./Home";
 import Assignments from "./Assignments";
 
-function Courses() {
+function Courses({ courses }: { courses: any[]; }) {
   const { courseId } = useParams();
-  const course = courses.find(
-    (course) => course._id === courseId);
+  const course = courses.find((course) => course._id === courseId);
   return (
     <div className="container">
       <div className="row"><h1><HiMiniBars3 /> Course {course?.name} </h1></div>
