@@ -14,33 +14,14 @@ import { KanbasState } from "../../store";
 
 function ModuleList() {
   const { courseId } = useParams();
-  const [moduleList, setModuleList] = useState<any[]>(modules);
+  const [moduleList, setModuleList] = useState<any[]>(modules.modules);
   const [module, setModule] = useState({
     name: "New Module",
     description: "New Description",
     course: courseId || "",
+    _id: "",
   });
-  const addModule = (module: any) => {
-    const newModule = { ...module,
-      _id: new Date().getTime().toString() };
-    const newModuleList = [newModule, ...moduleList];
-    setModuleList(newModuleList);
-  };
-  const deleteModule = (moduleId: string) => {
-    const newModuleList = moduleList.filter(
-      (module) => module._id !== moduleId );
-    setModuleList(newModuleList);
-  };
-  const updateModule = () => {
-    const newModuleList = moduleList.map((m) => {
-      if (m._id === module._id) {
-        return module;
-      } else {
-        return m;
-      }
-    });
-    setModuleList(newModuleList);
-  };
+
 
 
 

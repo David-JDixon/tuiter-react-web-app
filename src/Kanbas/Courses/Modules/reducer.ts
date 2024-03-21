@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { modules } from "../../Database";
-
+import modules from "../../Database";
+import React, { useState } from "react";
+import "./index.css";
+import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
+import { useParams } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
 
 const initialState = {
   modules: modules,

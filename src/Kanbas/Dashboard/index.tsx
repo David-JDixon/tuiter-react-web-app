@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import db from "../Database";
+
 function Dashboard({ courses, course, setCourse, addNewCourse,
   deleteCourse, updateCourse }: {
   courses: any[]; course: any; setCourse: (course: any) => void;
@@ -41,12 +42,18 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
           {courses.map((course) => (
             <div key={course._id} className="col" style={{ width: "300px" }}>
               <div className="card">
-                ... {course.name} ...
-                <Link
-                  className="card-title"
-                  to={`/Kanbas/Courses/${course._id}`}
-                >
+                <img src="https://wallpapercave.com/wp/7Zt88LO.jpg" className="card-img-top" alt="..." />
+                <Link className="card-title" to={`/Kanbas/Courses/${course._id}/Home`}
+                    style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
                   {course.name}
+                  <div key={course._id} className="card-text">
+                    {course._id}
+                  </div>
+                  <p className="card-desc"> Spring24 Semester Term</p>
+                  <br/>
+                  <div className="wd-icon"/>
+                  <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">
+                    Go </Link> 
                   <button
                     onClick={(event) => {
                       event.preventDefault();
@@ -64,11 +71,9 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
                   >
                     Delete
                   </button>
-                </Link> 
-                <Link className="card-title" to={`/Kanbas/Courses/${course._id}/Home`}
-                    style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
-                  {course.name} 
-                </Link>   
+
+                </Link>
+
               </div> 
             </div>
           ))}
