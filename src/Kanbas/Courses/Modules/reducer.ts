@@ -7,7 +7,7 @@ import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 
 const initialState = {
-  modules: modules,
+  modules: [],
   module: { name: "New Module 123", description: "New Description" },
 };
 
@@ -16,6 +16,12 @@ const modulesSlice = createSlice({
   name: "modules",
   initialState,
   reducers: {
+    addModule: (state, action) => {
+      state.modules = [action.payload, ...state.modules];
+    },
+    setModules: (state, action) => {
+      state.modules = action.payload;
+    },
     addModule: (state, action) => {
       state.modules = [
         { ...action.payload, _id: new Date().getTime().toString() },
@@ -44,5 +50,5 @@ const modulesSlice = createSlice({
 
 
 export const { addModule, deleteModule,
-  updateModule, setModule } = modulesSlice.actions;
+  updateModule, setModule, setModules } = modulesSlice.actions;
 export default modulesSlice.reducer;
