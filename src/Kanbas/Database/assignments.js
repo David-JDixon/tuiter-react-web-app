@@ -1,4 +1,4 @@
-export default [
+const assignments = [
   {
     _id: "6557fcb7a11aca237708374b",
     title: "Propulsion Assignment",
@@ -45,3 +45,5 @@ export default [
     course: "RS103",
   },
 ];
+
+export default assignments;
