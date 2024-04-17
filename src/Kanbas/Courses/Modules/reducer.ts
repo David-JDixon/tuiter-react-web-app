@@ -17,24 +17,18 @@ const modulesSlice = createSlice({
   initialState,
   reducers: {
     addModule: (state, action) => {
-      state.modules = [action.payload, ...state.modules];
+      state.modules = [action.payload, ...state.modules] as typeof state.modules;
     },
     setModules: (state, action) => {
       state.modules = action.payload;
     },
-    addModule: (state, action) => {
-      state.modules = [
-        { ...action.payload, _id: new Date().getTime().toString() },
-          ...state.modules,
-      ];
-    },
     deleteModule: (state, action) => {
       state.modules = state.modules.filter(
-        (module) => module._id !== action.payload
+        (module: any) => module._id !== action.payload
       );
     },
-    updateModule: (state, action) => {
-      state.modules = state.modules.map((module) => {
+    updateModule: (state: { modules: any[]; module: { name: string; description: string; }; }, action) => {
+      state.modules = state.modules.map((module: any) => {
         if (module._id === action.payload._id) {
           return action.payload;
         } else {
