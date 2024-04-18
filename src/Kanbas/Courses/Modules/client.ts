@@ -10,8 +10,8 @@ export interface User {
   lastName: string;
 }
 const request = axios.create({
-        withCredentials: true,
-    });
+  withCredentials: true,
+});
 export const signup = async (user: any) => {
   const response = await request.post(`${USERS_API}/signup`, user);
   return response.data;
@@ -42,12 +42,32 @@ export const signout = async () => {
   return response.data;
 };
 export const findModulesForCourse = async (courseId: string | undefined) => {
-    const response = await axios
-      .get(`${COURSES_API}/${courseId}/modules`);
-    return response.data;
-  };
+  const response = await axios.get(`${COURSES_API}/${courseId}/modules`);
+  return response.data;
+};
 
-export function updateModule(module: { name: string; description: string; course: string; _id: string; }) {
-  throw new Error("Function not implemented.");
-}
-  
+export const createModule = async (
+  courseId: string | undefined,
+  module: { name: string; description: string; course: string; _id: string }
+) => {
+  const response = await axios.post(
+    `${COURSES_API}/${courseId}/modules`,
+    module
+  );
+  return response.data;
+};
+export const deleteModule = async (moduleId: string | undefined) => {
+  const response = await axios.delete(`${MODULES_API}/${moduleId}`);
+  return response.data;
+};
+
+export const updateModule = async (module: {
+  name: string;
+  description: string;
+  course: string;
+  _id: string;
+}) => {
+  const response = await axios.put(`${MODULES_API}/${module._id}`, module);
+  return response.data;
+};
+
