@@ -40,7 +40,7 @@ function Assignments() {
                                         <FaEllipsisV className="ms-2" />
                                     </span>
                                 </li>
-                                <div className="list-group-item" style={{ color: "orange" }}>Multiple Modules | Due: {assignment.due_date} | {assignment.points}</div>
+                                <div className="list-group-item" style={{ color: "orange" }}>Multiple Modules | Due: {assignment._id}</div>
                             </>
                         ))}
                     </ul>

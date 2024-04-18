@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Provider } from "react-redux"; // Import Provider
 import store from "../../store"; // Import the Redux store from the correct file path
 import "./index.css";
-import modules from "../../Database";
+import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
@@ -48,7 +48,7 @@ function ModuleList() {
 
   }, [courseId, dispatch]); // Include dispatch in dependencies array
 
-  const [moduleList, setModuleList] = useState<any[]>(modules.modules);
+  const [moduleList, setModuleList] = useState<any[]>(modules); // Remove .modules from modules
   const [module, setModule] = useState({
     name: "New Module",
     description: "New Description",

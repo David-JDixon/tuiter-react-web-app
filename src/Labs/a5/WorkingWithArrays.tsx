@@ -10,11 +10,11 @@ function WorkingWithArrays() {
     completed: false,
   });
   const [todos, setTodos] = useState<any[]>([]);
-  const fetchTodos = async () => {
+  const fetchTodos = async (id?: any) => {
     const response = await axios.get(API);
     setTodos(response.data);
   };
-  const removeTodo = async (todo) => {
+  const removeTodo = async (todo: { id: any; }) => {
     const response = await axios.get(`${API}/${todo.id}/delete`);
     setTodos(response.data);
   };
@@ -30,7 +30,7 @@ function WorkingWithArrays() {
     const response = await axios.post(API, todo);
     setTodos([...todos, response.data]);
   };
-    const deleteTodo = async (todo) => {
+    const deleteTodo = async (todo: { id: any; }) => {
     const response = await axios.delete(`${API}/${todo.id}`);
     setTodos(todos.filter((t) => t.id !== todo.id));
   };
@@ -49,7 +49,6 @@ function WorkingWithArrays() {
       <h3>Working with Arrays</h3>
       <textarea
         value={todo.description}
-        type="text"
         onChange={(e) => setTodo({ ...todo, description: e.target.value })}
       />
       <input
@@ -64,7 +63,7 @@ function WorkingWithArrays() {
       />
       <label>
         <input
-          value={todo.completed}
+          value={todo.completed.toString()}
           type="checkbox"
           onChange={(e) =>
             setTodo({
@@ -83,19 +82,11 @@ function WorkingWithArrays() {
             {todo.title}
             <p>{todo.description}</p>
             <p>{todo.due}</p>
-            <button onClick={() => fetchTodoById(todo.id)}>Edit</button>
+            <button onClick={() => fetchTodos(todo.id)}>Edit</button>
             <button>Remove</button>
             {todo.title}
             <button onClick={updateTitle}>Update Title</button>
-            const deleteTodo = async (todo) => {
-              const response = await axios.delete(`${API}/${todo.id}`);
-              setTodos(todos.filter((t) => t.id !== todo.id));
-            };
-            ...
-            <button onClick={() => deleteTodo(todo)}
-              className="btn btn-danger float-end ms-2">
-              Delete
-            </button>
+            <button onClick={() => removeTodo(todo)}>Remove</button>  
             <button onClick={updateTodo}>
             Update Todo
           </button>
@@ -107,7 +98,7 @@ function WorkingWithArrays() {
       <h4>Retrieving an Item from an Array by ID</h4>
       <input
         value={todo.id}
-        onChange={(e) => setTodo({ ...todo, id: e.target.value })}
+        onChange={(e) => setTodo({ ...todo, id: parseInt(e.target.value) })}
       />
       <a href={`${API}/${todo.id}`}>Get Todo by ID</a>
       <h3>Filtering Array Items</h3>

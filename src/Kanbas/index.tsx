@@ -3,7 +3,7 @@ import KanbasNavigation from "./Navigation";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Courses from "./Courses";
-import db from "./Database";
+import { courses } from "./Database";
 import { useState, useEffect } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
@@ -11,18 +11,7 @@ import axios from "axios";
 const API_BASE = process.env.REACT_APP_API_BASE;
 
 function Kanbas() {
-  const [courses, setCourses] = useState<any[]>(db.courses);
-
-  const COURSES_API = `${API_BASE}/api/courses`;
-  const MODULES_API = "https://kanbas-node-server-app.onrender.com/api/modules";
-  const findAllCourses = async () => {
-    const response = await axios.get(COURSES_API);
-    setCourses(response.data);
-  };
-  useEffect(() => {
-    findAllCourses();
-  }, []);
-
+  const [courses, setCourses] = useState<any[]>([]);
   const [course, setCourse] = useState({
     _id: "1234", name: "New Course", number: "New Number",
     startDate: "2023-09-10", endDate: "2023-12-15",

@@ -11,7 +11,9 @@ export interface User {
   firstName: string;
   lastName: string;
 }
-
+const request = axios.create({
+      withCredentials: true,
+  });
 
 export const signup = async (user: { username: string; password: string; }) => {
     const response = await axios.post(`${USERS_API}/signup`, user);

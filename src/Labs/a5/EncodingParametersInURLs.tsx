@@ -4,12 +4,12 @@ function EncodingParametersInURLs() {
   const [a, setA] = useState(34);
   const [b, setB] = useState(23);
   const [result, setResult] = useState(0);
-  const fetchSum = async (a, b) => {
+  const fetchSum = async (a: number, b: number) => {
     const response = await
       axios.get(`http://localhost:4000/a5/add/${a}/${b}`);
     setResult(response.data);
   };
-  const fetchSubtraction = async (a, b) => {
+  const fetchSubtraction = async (a: number, b: number) => {
     const response = await axios.get(
       `http://localhost:4000/a5/subtract/${a}/${b}`);
     setResult(response.data);
@@ -30,10 +30,9 @@ function EncodingParametersInURLs() {
       <h6>{welcome}</h6>
       <h3>Encoding Parameters In URLs</h3>
       <h4>Calculator</h4>
-      <input type="number" value={a}
-        onChange={(e) => setA(e.target.value)}/>
+      <input type="number" value={a} onChange={(e) => setA(Number(e.target.value))}/>
       <input type="number"
-        onChange={(e) => setB(e.target.value)} value={b}/>
+        onChange={(e) => setB(Number(e.target.value))} value={b}/>
       <h3>Path Parameters</h3>
       <a href={`http://localhost:4000/a5/add/${a}/${b}`}>
         Add {a} + {b}
@@ -46,7 +45,7 @@ function EncodingParametersInURLs() {
       <button onClick={() => fetchSum(a, b)} >
         Fetch Sum of {a} + {b}
       </button>
-      <button onClick={() => fetchSubtraction(a, b)} >
+EncodingParametersInURLs      <button onClick={() => fetchSubtraction(a, b)} >
         Fetch Substraction of {a} - {b}
       </button>
       <h3>Query Parameters</h3>

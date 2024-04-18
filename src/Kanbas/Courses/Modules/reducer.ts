@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import modules from "../../Database";
 import React, { useState } from "react";
 import "./index.css";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
@@ -44,5 +43,5 @@ const modulesSlice = createSlice({
 
 
 export const { addModule, deleteModule,
-  updateModule, setModule, setModules } = modulesSlice.actions;
+  updateModule, setModule, setModules }: { addModule: any, deleteModule: any, updateModule: any, setModule: any, setModules: any } = modulesSlice.actions;
 export default modulesSlice.reducer;
