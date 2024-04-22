@@ -1,15 +1,29 @@
 import ModuleList from "./List";
-import TodoList from "./todos"; // Fix the file name to match the actual file name
 function Modules() {
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="col-lg-9">
-                    <h2>Modules</h2>
-                    <ModuleList />
-            </div>
-        </div>
+  return (
+    <div>
+      <div>
+      <div >
+        <button>Collapse All</button>
+        <button>View Progress</button>
+        
+        <select>
+            <option>Publish All</option>
+            <option>Publish All Modules and Items</option>
+            <option>Publish Modules only</option>
+            <option>UnPublish All Modules</option>
+          </select>
+        <button type="button" className="redButton">+ Module</button>
+
+      </div>
+      <ModuleList />
+    
+
+      
     </div>
-    );
+    </div>
+
+    
+  );
 }
 export default Modules;
