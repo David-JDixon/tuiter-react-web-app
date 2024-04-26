@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
 import axios from "axios";
+import Quizzes from "./Quizzes/QuizListScreen/index";
 const API_BASE = process.env.REACT_APP_API_BASE;
 const COURSES_API = "http://localhost:4000/api/courses";
 
@@ -61,6 +62,7 @@ function Kanbas() {
               deleteCourse={deleteCourse}
               updateCourse={updateCourse}/>
               } />
+          <Route path="Quizzess" element={<h1>Quizzes here</h1>} />
           <Route path="Courses/*" element={<h1>Courses</h1>} />
           <Route path="Courses/:courseId/*" element={
             <Courses courses={courses} />} />

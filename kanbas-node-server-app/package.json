@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/jannunzi/kanbas-node-server-app#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
   }
 }

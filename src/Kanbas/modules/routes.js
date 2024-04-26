@@ -27,10 +27,6 @@ function ModuleRoutes(app) {
         res.sendStatus(204);
       });
     
-
-    app.post("/api/courses/:cid/modules", (req, res) => {...});
-
-    app.get("/api/courses/:cid/modules", (req, res) => {...});
 }
 
 export default ModuleRoutes;
