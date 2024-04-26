@@ -1,7 +1,5 @@
 import ModuleList from "../Modules/List";
 import StatusBar from "./status";
-import TodoList from "../Modules/todos";
-
 
 function Home() {
   return (
@@ -14,7 +12,6 @@ function Home() {
       <div className="col-lg-2">
         <h2>Status</h2>
         <StatusBar />
-        <TodoList />
       </div>
     </div>
     </div>
