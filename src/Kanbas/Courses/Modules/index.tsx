@@ -1,5 +1,4 @@
-import ModuleList from "./List";
-import TodoList from "./todos"; // Fix the file name to match the actual file name
+import ModuleList from "./List"; 
 function Modules() {
     return (
         <div className="container">
