@@ -3,7 +3,6 @@ import { FaCheckCircle, FaEllipsisV, FaPlusCircle } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import assignments from "../Database";
 import  courses  from "../Database";
-import filter from "lodash";
 
 function Assignments() {
     const { courseId } = useParams();
