@@ -1,0 +1,3 @@
+[ {"_student_id": "48274", "name": "John Doe", "age": 25, "courses" : "History"},
+ {"_student_id" : "a36m6", "name" : "Jane Doe", "age" : 24, "courses" : "Computer Science"}
+]
