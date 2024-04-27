@@ -1,13 +1,12 @@
 import React from "react";
 import { FaCheckCircle, FaEllipsisV, FaPlusCircle } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-import { assignments, courses, } from "../../Database";
+import assignments from "../Database";
+import  courses  from "../Database";
 
 function Assignments() {
     const { courseId } = useParams();
-    const assignmentList = assignments.filter(
-        (assignment) => assignment.course === courseId
-    );
+    //const assignmentList = assignments.filter((assignment: { course_id: any; }) => assignment.course_id === courseId);
 
     return (
         <> <div><h2>Assignments</h2></div>
@@ -28,7 +27,7 @@ function Assignments() {
                         (40% of Total)
                     </div>
                     <ul className="list-group">
-                        {assignmentList.map((assignment) => (
+                        {/* {assignmentList.map((assignment: { _id: any; title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; due_date: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; points: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }) => (
                             <>
                                 <li className="list-group-item">
                                     <FaEllipsisV className="me-2" />
@@ -42,7 +41,7 @@ function Assignments() {
                                 </li>
                                 <div className="list-group-item" style={{ color: "orange" }}>Multiple Modules | Due: {assignment.due_date} | {assignment.points}</div>
                             </>
-                        ))}
+                        ))} */}
                     </ul>
                 </li>
             </ul>
