@@ -1,13 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import modules from "../../Database";
-import React, { useState } from "react";
-import "./index.css";
-import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
-import { useParams } from "react-router";
-import { useSelector, useDispatch } from "react-redux";
+
 
 const initialState = {
-  modules: [],
+  modules: [] as { _id: string; name: string; description: string }[],
   module: { name: "New Module 123", description: "New Description" },
 };
 
@@ -16,9 +11,6 @@ const modulesSlice = createSlice({
   name: "modules",
   initialState,
   reducers: {
-    addModule: (state, action) => {
-      state.modules = [action.payload, ...state.modules];
-    },
     setModules: (state, action) => {
       state.modules = action.payload;
     },
