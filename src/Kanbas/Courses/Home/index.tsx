@@ -1,6 +1,6 @@
 import ModuleList from "../Modules/List";
 import StatusBar from "./status";
-import TodoList from "../Modules/todos";
+import TodoList from "../Modules/List";
 
 
 function Home() {
